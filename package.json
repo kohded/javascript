@@ -1,0 +1,27 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "All things JavaScript (design patterns, data structures, and algorithms).",
+  "main": "",
+  "scripts": {
+    "test": "mocha --recursive",
+    "test-a": "mocha test/algorithms",
+    "test-ds": "mocha test/data-structures",
+    "test-dp": "mocha test/design-patterns"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kohded/javascript.git"
+  },
+  "author": "Arnold Koh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kohded/javascript/issues"
+  },
+  "homepage": "https://github.com/kohded/javascript#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}

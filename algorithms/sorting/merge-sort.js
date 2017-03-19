@@ -40,7 +40,7 @@ const merge = function (left, right) {
  * @param array
  * @returns {*}
  */
-const mergeSort = function (array) {
+const mergesort = function (array) {
   const length = array.length;
 
   if (length <= 1) {
@@ -51,15 +51,15 @@ const mergeSort = function (array) {
   const left = array.slice(0, middle);
   const right = array.slice(middle, length);
 
-  return merge(mergeSort(left), mergeSort(right));
+  return merge(mergesort(left), mergesort(right));
 };
 
 /**
  * Merge sort array.
  * @param array
  */
-const sort = function (array) {
-  return mergeSort(array);
+const mergeSort = function (array) {
+  return mergesort(array);
 };
 
-module.exports = sort;
+module.exports = mergeSort;

@@ -4,16 +4,25 @@
  * File: linked-list-test.js
  */
 
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable no-unused-expressions */
+
 const expect = require('chai').expect;
 const LinkedList = require('../../../data-structures/linked-lists/linked-list.js');
 
-const linkedList = new LinkedList();
-const emptyLinkedList = new LinkedList();
-
 describe('LinkedList', () => {
+  let linkedList;
+
+  beforeEach(() => {
+    linkedList = new LinkedList();
+    linkedList.append(1);
+    linkedList.append(2);
+    linkedList.append(3);
+  });
+
   describe('#append(element)', () => {
     it('should return true if element is appended', () => {
-      expect(linkedList.append(5)).to.be.true;
+      expect(linkedList.append(4)).to.be.true;
     });
     it('should return false if element is undefined', () => {
       expect(linkedList.append()).to.be.false;
@@ -22,12 +31,12 @@ describe('LinkedList', () => {
 
   describe('#indexOf(element)', () => {
     it('should return index of the element', () => {
-      linkedList.append(10);
-      expect(linkedList.indexOf(5)).to.equal(0);
-      expect(linkedList.indexOf(10)).to.equal(1);
+      expect(linkedList.indexOf(1)).to.equal(0);
+      expect(linkedList.indexOf(2)).to.equal(1);
+      expect(linkedList.indexOf(3)).to.equal(2);
     });
     it('should return -1 if element is not found', () => {
-      expect(linkedList.indexOf(15)).to.equal(-1);
+      expect(linkedList.indexOf(4)).to.equal(-1);
     });
     it('should return -1 if element is undefined', () => {
       expect(linkedList.indexOf()).to.equal(-1);
@@ -36,25 +45,28 @@ describe('LinkedList', () => {
 
   describe('#insert(element, index)', () => {
     it('should return true if element is inserted', () => {
-      expect(linkedList.insert(15, 1)).to.be.true;
+      expect(linkedList.insert(4, 1)).to.be.true;
     });
     it('should return false if element is undefined', () => {
-      expect(linkedList.insert(undefined, 2)).to.be.false;
+      expect(linkedList.insert(undefined, 1)).to.be.false;
     });
     it('should return false if index is undefined', () => {
-      expect(linkedList.insert(20, undefined)).to.be.false;
+      expect(linkedList.insert(5, undefined)).to.be.false;
     });
     it('should return false if index is less than 0', () => {
-      expect(linkedList.insert(20, -1)).to.be.false;
+      expect(linkedList.insert(5, -1)).to.be.false;
     });
     it('should return false if index is greater than length', () => {
-      expect(linkedList.insert(20, 100)).to.be.false;
+      expect(linkedList.insert(5, 100)).to.be.false;
     });
   });
 
   describe('#isEmpty()', () => {
     it('should return true if list is empty', () => {
-      expect(emptyLinkedList.isEmpty()).to.be.true;
+      linkedList.remove(1);
+      linkedList.remove(2);
+      linkedList.remove(3);
+      expect(linkedList.isEmpty()).to.be.true;
     });
     it('should return false if list is not empty', () => {
       expect(linkedList.isEmpty()).to.be.false;
@@ -63,10 +75,13 @@ describe('LinkedList', () => {
 
   describe('#peek()', () => {
     it('should return head element', () => {
-      expect(linkedList.peek()).to.equal(5);
+      expect(linkedList.peek()).to.equal(1);
     });
     it('should return null if head is null', () => {
-      expect(emptyLinkedList.peek()).to.equal(null);
+      linkedList.remove(1);
+      linkedList.remove(2);
+      linkedList.remove(3);
+      expect(linkedList.peek()).to.equal(null);
     });
   });
 
@@ -78,7 +93,7 @@ describe('LinkedList', () => {
 
   describe('#remove(element)', () => {
     it('should return element that is removed', () => {
-      expect(linkedList.remove(15)).to.equal(15);
+      expect(linkedList.remove(2)).to.equal(2);
     });
     it('should return null if element is undefined', () => {
       expect(linkedList.remove()).to.equal(null);
@@ -87,7 +102,7 @@ describe('LinkedList', () => {
 
   describe('#removeAt(index)', () => {
     it('should return element that is removed', () => {
-      expect(linkedList.removeAt(1)).to.equal(10);
+      expect(linkedList.removeAt(1)).to.equal(2);
     });
     it('should return null if index is undefined', () => {
       expect(linkedList.removeAt()).to.equal(null);
@@ -102,9 +117,7 @@ describe('LinkedList', () => {
 
   describe('#toString()', () => {
     it('should return list as a string', () => {
-      linkedList.append(10);
-      linkedList.append(15);
-      expect(linkedList.toString()).to.equal('5, 10, 15');
+      expect(linkedList.toString()).to.equal('1, 2, 3');
     });
   });
 });

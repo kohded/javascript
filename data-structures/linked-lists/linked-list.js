@@ -4,7 +4,7 @@
  * File: linked-list.js
  */
 
-module.exports = (function () {
+(function () {
   const LinkedList = function () {
     this.length = 0;
     this.head = null;
@@ -206,5 +206,5 @@ module.exports = (function () {
     }
   };
 
-  return LinkedList;
+  module.exports = LinkedList;
 }());

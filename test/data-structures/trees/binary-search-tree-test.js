@@ -11,12 +11,12 @@ const expect = require('chai').expect;
 const BinarySearchTree = require('../../../data-structures/trees/binary-search-tree.js');
 
 describe('BinarySearchTree', () => {
-  let bstEmpty;
+  let emptyBST;
   let bst;
 
   beforeEach(() => {
-    bstEmpty = Object.create(BinarySearchTree.prototype);
-    bst = Object.create(BinarySearchTree.prototype);
+    emptyBST = new BinarySearchTree();
+    bst = new BinarySearchTree();
     bst.insert(2);
     bst.insert(1);
     bst.insert(3);
@@ -49,7 +49,7 @@ describe('BinarySearchTree', () => {
 
   describe('#search(key)', () => {
     it('should return null if tree is empty and there is not a head', () => {
-      expect(bstEmpty.search()).to.be.null;
+      expect(emptyBST.search()).to.be.null;
     });
     it('should return null if key is not found', () => {
       expect(bst.search(4)).to.be.null;
@@ -63,7 +63,7 @@ describe('BinarySearchTree', () => {
 
   describe('#max(current)', () => {
     it('should return null if tree is empty and there is not a head', () => {
-      expect(bstEmpty.max()).to.be.null;
+      expect(emptyBST.max()).to.be.null;
     });
     it('should return max key', () => {
       expect(bst.max()).to.equal(3);
@@ -72,7 +72,7 @@ describe('BinarySearchTree', () => {
 
   describe('#min(current)', () => {
     it('should return null if tree is empty and there is not a head', () => {
-      expect(bstEmpty.min()).to.be.null;
+      expect(emptyBST.min()).to.be.null;
     });
     it('should return min key', () => {
       expect(bst.min()).to.equal(1);

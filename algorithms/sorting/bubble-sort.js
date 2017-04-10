@@ -5,6 +5,11 @@
  */
 
 (function () {
+  /**
+   * Bubble sort array.
+   * @param array
+   * @returns {*}
+   */
   const bubbleSort = function (array) {
     const length = array.length;
 

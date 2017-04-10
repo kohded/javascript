@@ -8,7 +8,7 @@ const expect = require('chai').expect;
 const bubbleSort = require('../../../algorithms/sorting/bubble-sort');
 
 describe('BubbleSort', () => {
-  describe('#bubbleSort', () => {
+  describe('#bubbleSort(array)', () => {
     it('should return sorted array', () => {
       const unsorted = [9, 3, 7, 1, 8, 2, 9, 5, 4, 6, 0];
 

@@ -4,62 +4,64 @@
  * File: merge-sort.js
  */
 
-/**
- * Merge divided subarrays in sorted order.
- * @param left
- * @param right
- * @returns {Array}
- */
-const merge = function (left, right) {
-  const result = [];
-  let indexL = 0;
-  let indexR = 0;
+(function () {
+  /**
+   * Merge divided subarrays in sorted order.
+   * @param left
+   * @param right
+   * @returns {Array}
+   */
+  const merge = function (left, right) {
+    const result = [];
+    let indexL = 0;
+    let indexR = 0;
 
-  while (indexL < left.length && indexR < right.length) {
-    if (left[indexL] < right[indexR]) {
+    while (indexL < left.length && indexR < right.length) {
+      if (left[indexL] < right[indexR]) {
+        result.push(left[indexL++]);
+      }
+      else {
+        result.push(right[indexR++]);
+      }
+    }
+
+    while (indexL < left.length) {
       result.push(left[indexL++]);
     }
-    else {
+
+    while (indexR < right.length) {
       result.push(right[indexR++]);
     }
-  }
 
-  while (indexL < left.length) {
-    result.push(left[indexL++]);
-  }
+    return result;
+  };
 
-  while (indexR < right.length) {
-    result.push(right[indexR++]);
-  }
+  /**
+   * Recursively divide subarrays.
+   * @param array
+   * @returns {*}
+   */
+  const mergesort = function (array) {
+    const length = array.length;
 
-  return result;
-};
+    if (length <= 1) {
+      return array;
+    }
 
-/**
- * Recursively divide subarrays.
- * @param array
- * @returns {*}
- */
-const mergesort = function (array) {
-  const length = array.length;
+    const middle = Math.floor(length / 2);
+    const left = array.slice(0, middle);
+    const right = array.slice(middle, length);
 
-  if (length <= 1) {
-    return array;
-  }
+    return merge(mergesort(left), mergesort(right));
+  };
 
-  const middle = Math.floor(length / 2);
-  const left = array.slice(0, middle);
-  const right = array.slice(middle, length);
+  /**
+   * Merge sort array.
+   * @param array
+   */
+  const mergeSort = function (array) {
+    return mergesort(array);
+  };
 
-  return merge(mergesort(left), mergesort(right));
-};
-
-/**
- * Merge sort array.
- * @param array
- */
-const mergeSort = function (array) {
-  return mergesort(array);
-};
-
-module.exports = mergeSort;
+  module.exports = mergeSort;
+}());

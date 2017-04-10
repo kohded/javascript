@@ -7,7 +7,7 @@
 const expect = require('chai').expect;
 const Map = require('../../../data-structures/maps/map');
 
-describe('#Map', () => {
+describe('Map', () => {
   let map;
 
   beforeEach(() => {

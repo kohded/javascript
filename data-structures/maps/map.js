@@ -47,8 +47,7 @@
      * @param key
      */
     has(key) {
-      // return Object.prototype.hasOwnProperty.call(this.map, key);
-      return key in this.map;
+      return Object.prototype.hasOwnProperty.call(this.map, key);
     },
     /**
      * Return an array of all keys in the map.

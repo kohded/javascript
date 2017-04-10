@@ -1,0 +1,22 @@
+{
+  "env": {
+    "es6": true,
+    "mocha": true,
+    "node": true
+  },
+  "extends": "airbnb",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "impliedStrict": true,
+      "modules": true
+    },
+    "sourceType": "module"
+  },
+  "rules": {
+    "brace-style": [ "error", "stroustrup", { "allowSingleLine": true } ],
+    "indent": [ "error", 2 ],
+    "no-param-reassign": "off",
+    "no-plusplus": "off"
+  }
+}

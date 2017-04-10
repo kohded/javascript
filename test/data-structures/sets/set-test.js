@@ -4,9 +4,6 @@
  * File: set-test.js
  */
 
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-unused-expressions */
-
 const expect = require('chai').expect;
 const Set = require('../../../data-structures/sets/set.js');
 

@@ -56,7 +56,7 @@
      */
     toString() {
       return this.stack.toString();
-    }
+    },
   };
 
   module.exports = Stack;

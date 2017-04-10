@@ -203,7 +203,7 @@
       }
 
       return string;
-    }
+    },
   };
 
   module.exports = LinkedList;

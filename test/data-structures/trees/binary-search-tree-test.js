@@ -4,9 +4,6 @@
  * File: binary-search-tree-test.js
  */
 
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-unused-expressions */
-
 const expect = require('chai').expect;
 const BinarySearchTree = require('../../../data-structures/trees/binary-search-tree.js');
 

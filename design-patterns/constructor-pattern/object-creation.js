@@ -35,7 +35,7 @@ Object.defineProperty(newObject1, 'newKey', {
   value: 'More control of properties',
   writable: true,
   enumerable: true,
-  configurable: true
+  configurable: true,
 });
 console.log(newObject1);
 
@@ -45,7 +45,7 @@ const defineProperty = (object, key, value) => {
     value,
     writable: true,
     enumerable: true,
-    configurable: true
+    configurable: true,
   };
   Object.defineProperty(object, key, config);
 };
@@ -61,11 +61,11 @@ console.log(person);
 Object.defineProperties(newObject1, {
   someKey: {
     value: 'Some key',
-    writable: true
+    writable: true,
   },
   anotherKey: {
     value: 'Another key',
-    writable: false
-  }
+    writable: false,
+  },
 });
 console.log(newObject1);

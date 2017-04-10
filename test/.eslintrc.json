@@ -1,0 +1,8 @@
+{
+  "rules": {
+    "import/no-extraneous-dependencies": [
+      "error", { "devDependencies": [ "**/*-test.js" ] }
+    ],
+    "no-unused-expressions": "off"
+  }
+}

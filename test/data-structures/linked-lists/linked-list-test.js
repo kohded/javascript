@@ -4,9 +4,6 @@
  * File: linked-list-test.js
  */
 
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-unused-expressions */
-
 const expect = require('chai').expect;
 const LinkedList = require('../../../data-structures/linked-lists/linked-list.js');
 

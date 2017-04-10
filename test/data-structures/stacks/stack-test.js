@@ -4,9 +4,6 @@
  * File: stack-test.js
  */
 
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-unused-expressions */
-
 const expect = require('chai').expect;
 const Stack = require('../../../data-structures/stacks/stack.js');
 

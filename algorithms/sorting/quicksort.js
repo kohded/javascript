@@ -4,71 +4,62 @@
  * File: quicksort.js
  */
 
-/**
- * Swap values if left is > pivot, right < pivot, and indexes don't pass each other.
- * @param array
- * @param left
- * @param right
- */
-const swap = function (array, left, right) {
-  [array[left], array[right]] = [array[right], array[left]];
-};
+(function () {
+  /**
+   * Create pivot and partition array.
+   * @param array
+   * @param indexL
+   * @param indexR
+   * @returns {*}
+   */
+  const partition = function (array, indexL, indexR) {
+    const pivot = array[Math.floor((indexR + indexL) / 2)];
 
-/**
- * Create pivot and partition array.
- * @param array
- * @param left
- * @param right
- * @returns {*}
- */
-const partition = function (array, left, right) {
-  const pivot = array[Math.floor((right + left) / 2)];
-  let indexL = left;
-  let indexR = right;
+    while (indexL <= indexR) {
+      while (array[indexL] < pivot) {
+        indexL++;
+      }
 
-  while (indexL <= indexR) {
-    while (array[indexL] < pivot) {
-      indexL++;
+      while (array[indexR] > pivot) {
+        indexR--;
+      }
+
+      if (indexL <= indexR) {
+        // Swap
+        [array[indexL], array[indexR]] = [array[indexR], array[indexL]];
+        indexL++;
+        indexR--;
+      }
     }
 
-    while (array[indexR] > pivot) {
-      indexR--;
+    return indexL;
+  };
+
+  /**
+   * Recursive function for quicksort.
+   * @param array
+   * @param indexL
+   * @param indexR
+   * @returns {*}
+   */
+  const quickSort = function (array, indexL, indexR) {
+    if (indexL < indexR) {
+      const indexP = partition(array, indexL, indexR);
+
+      quickSort(array, indexL, indexP - 1);
+      quickSort(array, indexP, indexR);
     }
 
-    if (indexL <= indexR) {
-      swap(array, indexL, indexR);
-      indexL++;
-      indexR--;
-    }
-  }
+    return array;
+  };
 
-  return indexL;
-};
+  /**
+   * Quicksort array.
+   * @param array
+   */
+  const quicksort = function (array) {
+    return quickSort(array, 0, array.length - 1);
+  };
 
-/**
- * Recursive function for quicksort.
- * @param array
- * @param left
- * @param right
- * @returns {*}
- */
-const quickSort = function (array, left, right) {
-  if (left < right) {
-    const index = partition(array, left, right);
-
-    quickSort(array, left, index - 1);
-    quickSort(array, index, right);
-  }
-
-  return array;
-};
-
-/**
- * Quicksort array.
- * @param array
- */
-const quicksort = function (array) {
-  return quickSort(array, 0, array.length - 1);
-};
-
-module.exports = quicksort;
+  module.exports = quicksort;
+}());

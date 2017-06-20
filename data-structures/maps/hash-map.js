@@ -23,9 +23,9 @@
     hashCodeDJB2(key) {
       let hash = 5381;
 
-      for (let i = 0; i < key.length; i++) {
-        hash = (hash * 33) + key.charCodeAt(i);
-      }
+      key.split('').forEach((char) => {
+        hash = (hash * 33) + char.charCodeAt(0);
+      });
 
       // % prime number > needed hash map size.
       return hash % 37;
@@ -33,9 +33,9 @@
     hashCodeLoseLose(key) {
       let hash = 0;
 
-      for (let i = 0; i < key.length; i++) {
-        hash += key.charCodeAt(i);
-      }
+      key.split('').forEach((char) => {
+        hash += char.charCodeAt(0);
+      });
 
       return hash % 37;
     },
@@ -43,9 +43,9 @@
       return this.hashMapSize === 0;
     },
     put(key, value) {
-      const hashCode = this.hashCode(key);
+      const bucketIndex = this.hashCode(key);
 
-      this.hashMap[hashCode] = value;
+      this.hashMap[bucketIndex] = value;
       this.hashMapSize++;
     },
     remove(key) {

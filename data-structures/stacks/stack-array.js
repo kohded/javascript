@@ -1,7 +1,7 @@
 /**
  * @author Arnold Koh <arnold@kohded.com>
  * Developed: 4/7/2017
- * File: stack.js
+ * File: stack-array.js
  */
 
 (function () {
@@ -13,6 +13,7 @@
     /**
      * Push an element on top of the stack.
      * @param element The object to be added.
+     * @returns {Number} The object that was added.
      */
     push(element) {
       return this.stack.push(element);

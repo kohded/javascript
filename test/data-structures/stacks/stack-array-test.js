@@ -1,11 +1,11 @@
 /**
  * @author Arnold Koh <arnold@kohded.com>
  * Developed: 4/7/2017
- * File: stack-test.js
+ * File: stack-array-test.js
  */
 
 const expect = require('chai').expect;
-const Stack = require('../../../data-structures/stacks/stack.js');
+const Stack = require('../../../data-structures/stacks/stack-array');
 
 describe('Stack', () => {
   let stack;

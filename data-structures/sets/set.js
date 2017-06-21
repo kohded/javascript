@@ -4,7 +4,7 @@
  * File: set.js
  */
 
-module.exports = (function () {
+(function () {
   const Set = function () {
     this.items = [];
   };
@@ -131,5 +131,5 @@ module.exports = (function () {
     },
   };
 
-  return Set;
+  module.exports = Set;
 }());

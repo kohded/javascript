@@ -4,7 +4,7 @@
     "mocha": true,
     "node": true
   },
-  "extends": "airbnb",
+  "extends": "airbnb-base",
   "parserOptions": {
     "ecmaVersion": 6,
     "ecmaFeatures": {
@@ -14,9 +14,8 @@
     "sourceType": "module"
   },
   "rules": {
-    "brace-style": [ "error", "stroustrup", { "allowSingleLine": true } ],
-    "indent": [ "error", 2 ],
+    "no-console": ["error", { "allow": ["log"] }],
     "no-param-reassign": "off",
-    "no-plusplus": "off"
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
   }
 }

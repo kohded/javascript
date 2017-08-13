@@ -17,12 +17,30 @@ describe('LinkedList', () => {
     linkedList.append(3);
   });
 
+  describe('#add(element, index)', () => {
+    it('should return true if element is added', () => {
+      expect(linkedList.add(4, 1)).to.be.true;
+    });
+    it('should return undefined if element is undefined', () => {
+      expect(linkedList.add(undefined, 1)).to.be.undefined;
+    });
+    it('should return undefined if index is undefined', () => {
+      expect(linkedList.add(5, undefined)).to.be.undefined;
+    });
+    it('should return undefined if index is less than 0', () => {
+      expect(linkedList.add(5, -1)).to.be.undefined;
+    });
+    it('should return undefined if index is greater than length', () => {
+      expect(linkedList.add(5, 100)).to.be.undefined;
+    });
+  });
+
   describe('#append(element)', () => {
     it('should return true if element is appended', () => {
       expect(linkedList.append(4)).to.be.true;
     });
-    it('should return false if element is undefined', () => {
-      expect(linkedList.append()).to.be.false;
+    it('should return undefined if element is undefined', () => {
+      expect(linkedList.append()).to.be.undefined;
     });
   });
 
@@ -37,24 +55,6 @@ describe('LinkedList', () => {
     });
     it('should return -1 if element is undefined', () => {
       expect(linkedList.indexOf()).to.equal(-1);
-    });
-  });
-
-  describe('#insert(element, index)', () => {
-    it('should return true if element is inserted', () => {
-      expect(linkedList.insert(4, 1)).to.be.true;
-    });
-    it('should return false if element is undefined', () => {
-      expect(linkedList.insert(undefined, 1)).to.be.false;
-    });
-    it('should return false if index is undefined', () => {
-      expect(linkedList.insert(5, undefined)).to.be.false;
-    });
-    it('should return false if index is less than 0', () => {
-      expect(linkedList.insert(5, -1)).to.be.false;
-    });
-    it('should return false if index is greater than length', () => {
-      expect(linkedList.insert(5, 100)).to.be.false;
     });
   });
 
@@ -74,17 +74,11 @@ describe('LinkedList', () => {
     it('should return head element', () => {
       expect(linkedList.peek()).to.equal(1);
     });
-    it('should return null if head is null', () => {
+    it('should return undefined if head is undefined', () => {
       linkedList.remove(1);
       linkedList.remove(2);
       linkedList.remove(3);
-      expect(linkedList.peek()).to.equal(null);
-    });
-  });
-
-  describe('#size()', () => {
-    it('should return size of list', () => {
-      expect(linkedList.size()).to.equal(3);
+      expect(linkedList.peek()).to.be.undefined;
     });
   });
 
@@ -92,8 +86,8 @@ describe('LinkedList', () => {
     it('should return element that is removed', () => {
       expect(linkedList.remove(2)).to.equal(2);
     });
-    it('should return null if element is undefined', () => {
-      expect(linkedList.remove()).to.equal(null);
+    it('should return undefined if element is undefined', () => {
+      expect(linkedList.remove()).to.be.undefined;
     });
   });
 
@@ -101,14 +95,20 @@ describe('LinkedList', () => {
     it('should return element that is removed', () => {
       expect(linkedList.removeAt(1)).to.equal(2);
     });
-    it('should return null if index is undefined', () => {
-      expect(linkedList.removeAt()).to.equal(null);
+    it('should return undefined if index is undefined', () => {
+      expect(linkedList.removeAt()).to.be.undefined;
     });
-    it('should return null if index is less than 0', () => {
-      expect(linkedList.removeAt(-1)).to.equal(null);
+    it('should return undefined if index is less than 0', () => {
+      expect(linkedList.removeAt(-1)).to.be.undefined;
     });
-    it('should return null if index is greater than length', () => {
-      expect(linkedList.removeAt(100)).to.equal(null);
+    it('should return undefined if index is greater than length', () => {
+      expect(linkedList.removeAt(100)).to.be.undefined;
+    });
+  });
+
+  describe('#size()', () => {
+    it('should return size of list', () => {
+      expect(linkedList.size()).to.equal(3);
     });
   });
 

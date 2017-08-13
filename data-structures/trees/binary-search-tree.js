@@ -27,16 +27,16 @@ BinarySearchTree.prototype = {
     } else {
       const insert = (node) => {
         if (key < node.key) {
-          if (!node.left) {
-            node.left = newNode;
-          } else {
+          if (node.left) {
             insert(node.left);
+          } else {
+            node.left = newNode;
           }
         } else if (key > node.key) {
-          if (!node.right) {
-            node.right = newNode;
-          } else {
+          if (node.right) {
             insert(node.right);
+          } else {
+            node.right = newNode;
           }
         }
       };
@@ -106,11 +106,23 @@ BinarySearchTree.prototype = {
     if (!this.root) { return undefined; }
     if (!node) { node = this.root; }
 
-    while (node && node.right) {
+    while (node.right) {
       node = node.right;
     }
 
     return node.key;
+  },
+  /**
+   * Return the max depth of the tree.
+   */
+  maxDepth() {
+    const maxDepth = (node) => {
+      if (!node) { return 0; }
+
+      return Math.max(maxDepth(node.left), maxDepth(node.right)) + 1;
+    };
+
+    return maxDepth(this.root);
   },
   /**
    * Return the minimum node or key in the tree.
@@ -121,11 +133,23 @@ BinarySearchTree.prototype = {
     if (!this.root) { return undefined; }
     if (!node) { node = this.root; }
 
-    while (node && node.left) {
+    while (node.left) {
       node = node.left;
     }
 
     return node.key;
+  },
+  /**
+   * Return the min depth of the tree.
+   */
+  minDepth() {
+    const minDepth = (node) => {
+      if (!node) { return 0; }
+
+      return Math.min(minDepth(node.left), minDepth(node.right)) + 1;
+    };
+
+    return minDepth(this.root);
   },
   /**
    * Return array of keys in-order.

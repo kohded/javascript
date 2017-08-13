@@ -91,7 +91,7 @@ describe('BinarySearchTree', () => {
 
   describe('#search(key)', () => {
     it('should return undefined if tree is empty and there is not a root', () => {
-      expect(emptyBST.search()).to.be.undefined;
+      expect(emptyBST.search(1)).to.be.undefined;
     });
     it('should return undefined if key is not found', () => {
       expect(bst.search(16)).to.be.undefined;
@@ -124,12 +124,31 @@ describe('BinarySearchTree', () => {
     });
   });
 
+  describe('#maxDepth()', () => {
+    it('should return 0 if tree is empty and there is not a root', () => {
+      expect(emptyBST.maxDepth()).to.equal(0);
+    });
+    it('should return max depth', () => {
+      expect(bst.maxDepth()).to.equal(4);
+    });
+  });
+
   describe('#min(current)', () => {
     it('should return undefined if tree is empty and there is not a root', () => {
       expect(emptyBST.min()).to.be.undefined;
     });
     it('should return min key', () => {
       expect(bst.min()).to.equal(1);
+    });
+  });
+
+  describe('#minDepth()', () => {
+    it('should return 0 if tree is empty and there is not a root', () => {
+      expect(emptyBST.minDepth()).to.equal(0);
+    });
+    it('should return min depth', () => {
+      bst.remove(1);
+      expect(bst.minDepth()).to.equal(3);
     });
   });
 
